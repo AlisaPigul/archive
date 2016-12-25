@@ -16,7 +16,7 @@ export class Header extends React.Component {
                 <h2>Архив патентов изобретений</h2>
                 <div className="menu-panel">
                     <NavigationMenu/>
-                    <div className="login">
+                    <div className="login" onClick={this.props.onLogin.bind(this)}>
                         <a href="#signin">Войти</a>
                     </div>
                 </div>

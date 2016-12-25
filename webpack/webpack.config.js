@@ -2,7 +2,6 @@
 const debug = process.env.NODE_ENV !== "production";
 const build = process.env.NODE_ENV === "build";
 const webpack = require('webpack');
-console.log(build);
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');

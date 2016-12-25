@@ -4,18 +4,27 @@
 import { Router, Route, Link, browserHistory, hashHistory} from 'react-router'
 import React from "react";
 import ReactDOM from "react-dom";
-import {Header, Content, Footer} from "./components";
+import {Header, Content, Footer, LoginForm} from "./components";
 class App extends React.Component {
+
+    onLogin(){
+        this.setState({
+            showLoginForm:true
+        });
+    }
+    constructor(){
+        super();
+        this.state = {
+            showLoginForm: false
+        }
+
+    }
     render() {
-        const arr = [<Header key="header"/>,<Content key="content"/>,<Footer key="footer"/>];
+        const arr = [<Header onLogin={this.onLogin.bind(this)} key="header"/>,<Content key="content"/>,<Footer key="footer"/>, <LoginForm show={this.state.showLoginForm} key="loginForm"/>];
         return (
-            <Router history={hashHistory}>
-                <Route path="/">
-                    <h1>DSAD</h1>
-                </Route>
-            </Router>
-
-
+            <div>
+                {arr}
+            </div>
         )
     };
 }
