@@ -43,9 +43,14 @@ module.exports = {
         template: './frontend/src/public/index.html',
         filename: '../index.html'
 
+
     }),new CopyWebpackPlugin([{
         from: './frontend/src/public', to: __dirname + '/../dist'
-    }])]: [
+    }]),new webpack.DefinePlugin({
+        'process.env': {
+            'NODE_ENV': JSON.stringify('production')
+        }
+    })]: [
 
         new webpack.NoErrorPlugin(),
         new webpack.optimize.DedupePlugin(),

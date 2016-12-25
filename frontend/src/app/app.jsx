@@ -1,10 +1,18 @@
 /**
  * Created by rlapin on 11/14/16.
  */
-import { Router, Route, Link, browserHistory, hashHistory} from 'react-router'
 import React from "react";
 import ReactDOM from "react-dom";
-import {Header, Content, Footer, LoginForm} from "./components";
+import {Header, Content, Footer, LoginForm,DevTools} from "./components";
+import {createStore} from "redux";
+import {appReducer} from "./reducers";
+import { Provider } from 'react-redux';
+
+
+const isProduction = true;
+
+let store = createStore(appReducer);
+console.log(store.getState())
 class App extends React.Component {
 
     onLogin(){
@@ -22,9 +30,12 @@ class App extends React.Component {
     render() {
         const arr = [<Header onLogin={this.onLogin.bind(this)} key="header"/>,<Content key="content"/>,<Footer key="footer"/>, <LoginForm show={this.state.showLoginForm} key="loginForm"/>];
         return (
-            <div>
+            <Provider store={store}>
+                <div>
                 {arr}
-            </div>
+
+                </div>
+            </Provider>
         )
     };
 }
