@@ -3,10 +3,11 @@
  */
 import React from "react";
 import ReactDOM from "react-dom";
-import {Header, Content, Footer, LoginForm,DevTools} from "./components";
+import {Header, Content, Footer, LoginForm,DevTools, AboutComponent,QueryComponent} from "./components";
 import {createStore} from "redux";
 import {appReducer} from "./reducers";
 import { Provider } from 'react-redux';
+import {Router,Route,Redirect,IndexRoute,browserHistory,hashHistory} from "react-router";
 
 
 const isProduction = true;
@@ -28,17 +29,31 @@ class App extends React.Component {
 
     }
     render() {
-        const arr = [<Header onLogin={this.onLogin.bind(this)} key="header"/>,<Content key="content"/>,<Footer key="footer"/>, <LoginForm show={this.state.showLoginForm} key="loginForm"/>];
+        const arr = [<Header onLogin={this.onLogin.bind(this)} key="header"/>, <LoginForm show={this.state.showLoginForm} key="loginForm"/>];
         return (
-            <Provider store={store}>
-                <div>
-                {arr}
-
-                </div>
-            </Provider>
+           <div id="app">
+               {arr}
+               {this.props && this.props.children}
+           </div>
         )
     };
 }
 
+class TestComponent extends React.Component{
+    render(){
+        return (
+            <h1>Hello world</h1>
+        )
+    }
+}
 const app = document.getElementById('app');
-ReactDOM.render(<App/>, app);
+ReactDOM.render(
+    <Router history={browserHistory}>
+        <Route path="/" component={App}>
+            <Route path="query" component={QueryComponent}/>
+            <Route path="about" component={AboutComponent}/>
+            <Route path="*" component={TestComponent}/>
+        </Route>
+
+    </Router>
+    , document.body);
