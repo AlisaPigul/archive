@@ -4,8 +4,6 @@ import React from "react";
 export class LoginForm extends React.Component {
     constructor(props,state){
         super(props);
-        debugger
-        alert(state);
     }
 
     render() {

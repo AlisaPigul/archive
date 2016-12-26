@@ -40,6 +40,7 @@ class App extends React.Component {
             <div id="app">
                 <div>
                     {arr}
+                    {this.props.children}
                 </div>
                 <div>
                     <DevTools/>
