@@ -10,5 +10,5 @@ import {loginReducer} from "./login"
 
 
 export const appReducer = combineReducers({
-   loginReducer,
+   loginReducer
 });
