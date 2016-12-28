@@ -112,16 +112,17 @@ header{
     animation-name:anim;
     pointer-events: auto;
     width: 20vw;
-    height:20vh;
     animation-timing-function: linear;
 }
 
 #wrapper .login-form{
     display:flex;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
     flex-direction:column;
     justify-content: center;
-    padding-left:5vh;
-    padding-right:5vh;
+    padding-left:5vw;
+    padding-right:5vw;
     background: #d1d1d1;
 }
 #wrapper .login-form>input:not(:last-of-type){

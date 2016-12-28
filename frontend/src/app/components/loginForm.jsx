@@ -11,14 +11,11 @@ export class LoginForm extends React.Component {
     }
 
     handleLoginChange(event) {
-        console.log(event);
         this.setState({value: event.target.value});
-        console.log(this.props.value);
     }
 
     handlePasswordChange(event) {
-        this.setState({password: event.target.password});
-        console.log(this.props.password);
+        this.setState({password: event.target.value});
     }
 
     handleSubmit(event) {
@@ -32,17 +29,11 @@ export class LoginForm extends React.Component {
         return (
             <div id="wrapper" className={this.props.show ? 'visible' : ''}>
 
-                <div className="login-form" onSubmit={this.handleSubmit}>
-                    <label>
-                        Пользовательское имя:
-                        <input type="text" value={this.state.value} onChange={this.handleLoginChange} />
-                    </label>
-                    <label>
-                        Пароль:
-                        <input type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
-                    </label>
+                <form className="login-form" onSubmit={this.handleSubmit}>
+                        <input type="text"  placeholder="Input your login" value={this.state.value} onChange={this.handleLoginChange}/>
+                        <input type="password" placeholder="Input your password" value={this.state.password} onChange={this.handlePasswordChange}/>
                     <input type="submit" value={'Login'}/>
-                </div>
+                </form>
             </div>
         )
     }
