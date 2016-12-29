@@ -3,19 +3,19 @@
  */
 import React from "react";
 import ReactDOM from "react-dom";
-import {Header, Content, Footer, LoginForm, AboutComponent, QueryComponent} from "./components";
+import {LoginForm, AboutComponent, QueryComponent,Header} from "./components";
 import DevTools from "./components/devTools";
 import {createStore} from "redux";
 import {appReducer} from "./reducers";
 import configureStore from "./store/configureStore"
 import {Provider} from 'react-redux';
 import {Router, Route, Redirect, IndexRoute, browserHistory, hashHistory} from "react-router";
+import {showLogin} from "./actions/loginActions";
 
 
 const isProduction = true;
 
 let store = configureStore();
-console.log(store.getState())
 class App extends React.Component {
 
     onLogin() {
@@ -24,8 +24,8 @@ class App extends React.Component {
         });
     }
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             showLoginForm: false
         }
@@ -34,7 +34,7 @@ class App extends React.Component {
 
     render() {
         const arr = [<Header onLogin={this.onLogin.bind(this)} key="header"/>,
-            <LoginForm show={this.state.showLoginForm} key="loginForm"/>];
+            <LoginForm key="loginForm"/>];
         return (
 
             <div id="app">
@@ -58,6 +58,7 @@ class TestComponent extends React.Component {
         )
     }
 }
+store.dispatch(showLogin());
 const app = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>

@@ -1,5 +1,5 @@
 import {combineReducers} from "redux";
-import {loginReducer} from "./login"
+import {loginForm} from "./login"
 /**
  * @author rlapin
  */
@@ -10,5 +10,5 @@ import {loginReducer} from "./login"
 
 
 export const appReducer = combineReducers({
-   loginReducer
+   loginForm
 });

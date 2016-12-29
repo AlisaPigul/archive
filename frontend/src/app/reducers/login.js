@@ -9,7 +9,7 @@ const DEFAULT_STATE = {
 };
 
 
-export function loginReducer(state = DEFAULT_STATE, action){
+export function loginForm(state = DEFAULT_STATE, action){
     switch(action.type){
         case 'LOGIN_SHOW':
             return {
