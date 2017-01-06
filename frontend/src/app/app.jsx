@@ -58,7 +58,6 @@ class TestComponent extends React.Component {
         )
     }
 }
-store.dispatch(showLogin());
 const app = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>
