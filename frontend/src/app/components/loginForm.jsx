@@ -36,6 +36,7 @@ export class LoginForm extends React.Component {
 
 
                 <form className="login-form" onSubmit={()=>dispatch(hideLogin())}>
+                        <input type="submit" value={'X'} className="close-button" />
                         <input type="text"  placeholder="Input your login" value={this.state.value} onChange={this.handleLoginChange}/>
                         <input type="password" placeholder="Input your password" value={this.state.password} onChange={this.handlePasswordChange}/>
                     <input type="submit" value={'Login'}/>
