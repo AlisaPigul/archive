@@ -5,6 +5,7 @@ import React from "react";
 import {NavigationMenu} from "./navigationMenu";
 import {connect} from "react-redux";
 import {Link} from "react-router";
+import {logout} from "../actions/loginActions";
 
 let Header = ({dispatch, auth}) => {
 
@@ -18,9 +19,14 @@ let Header = ({dispatch, auth}) => {
                 <div className="patent">
                     <Link to="/patent">Добавление патента</Link>
                 </div>}
+                {!auth &&
                 <div className="login">
                     <Link to="/login">Войти</Link>
-                </div>
+                </div>}
+                {auth &&
+                <div className="logout"  onClick={()=>dispatch(logout())}>
+                    Выйти
+                </div>}
             </div>
         </header>
     )

@@ -1,4 +1,4 @@
-import {LOGIN_SHOW, LOGIN_HIDE, LOGIN_SUCCESS} from "../constants/loginConstants";
+import {LOGIN_SHOW, LOGIN_HIDE, LOGIN_SUCCESS, LOGOUT} from "../constants/loginConstants";
 /**
  * @author rlapin
  */
@@ -15,6 +15,8 @@ export function loginState(state = DEFAULT_STATE, action){
 
         case LOGIN_SUCCESS:
             return Object.assign({},state,{auth:true});
+        case LOGOUT:
+            return Object.assign({},state,{auth:false});
         default:
             return state;
 
