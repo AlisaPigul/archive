@@ -1,20 +1,12 @@
+import {LOGIN_SHOW, LOGIN_HIDE, LOGIN_SUCCESS} from "../constants/loginConstants";
 /**
  * @author rlapin
  */
 
 
-export function showLogin() {
-    return {
-        type: 'LOGIN_SHOW'
-    }
-}
-export function hideLogin() {
-    return {
-        type: 'LOGIN_HIDE'
-    }
-}
+
 export function successLogin() {
      return {
-         type: 'SUCCESS_LOGIN'
+         type: LOGIN_SUCCESS
      }
 }

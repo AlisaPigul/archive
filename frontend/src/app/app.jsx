@@ -19,33 +19,23 @@ const isProduction = true;
 
 let store = configureStore();
 @connect(state=> ({
-    auth: state.loginForm.auth
+    auth: state.loginState.auth
 }))
 class App extends React.Component {
 
-    onLogin() {
-        this.setState({
-            showLoginForm: true
-        });
-    }
+
 
     constructor(props) {
         super(props);
-        this.state = {
-            showLoginForm: false,
-            auth:true
-        }
-
     }
 
     render() {
-        const arr = [<Header onLogin={this.onLogin.bind(this)} auth={this.state.auth} key="header"/>,
-            <LoginForm key="loginForm"/>];
+
         return (
 
             <div id="app">
                 <div>
-                    {arr}
+                    <Header key="header"/>
                     {this.props.children}
                 </div>
                 <div>
@@ -71,6 +61,7 @@ ReactDOM.render(
             <Route path="/" component={App}>
                 <Route path="query" component={QueryComponent}/>
                 <Route path="about" component={AboutComponent}/>
+                <Route path="login" component={LoginForm}/>
                 <Route path="patent" component={PatentAddition}/>
                 <Route path="*" component={TestComponent}/>
             </Route>

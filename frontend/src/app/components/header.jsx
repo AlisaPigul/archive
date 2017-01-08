@@ -4,23 +4,32 @@ import React from "react";
  */
 import {NavigationMenu} from "./navigationMenu";
 import {connect} from "react-redux";
-import {showLogin} from "../actions/loginActions";
+import {Link} from "react-router";
 
-let Header = ({onLogin,auth, dispatch,store}) => {
+let Header = ({dispatch, auth}) => {
+
     return (
+
         <header>
             <h2>Архив патентов изобретений</h2>
             <div className="menu-panel">
                 <NavigationMenu/>
-                {auth && <div className="patent" >
-                    <a href="/patent">Добавление патента</a>
+                {auth &&
+                <div className="patent">
+                    <Link to="/patent">Добавление патента</Link>
                 </div>}
-                <div className="login" onClick={()=>dispatch(showLogin())}>
-                    <a href="#signin">Войти</a>
+                <div className="login">
+                    <Link to="/login">Войти</Link>
                 </div>
             </div>
         </header>
     )
 };
-Header = connect()(Header);
+function mapStateToProps(state) {
+    return {
+        auth: state.loginState.auth
+    }
+}
+
+Header = connect(mapStateToProps)(Header);
 export default Header;
