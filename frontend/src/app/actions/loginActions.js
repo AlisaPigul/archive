@@ -13,3 +13,8 @@ export function hideLogin() {
         type: 'LOGIN_HIDE'
     }
 }
+export function successLogin() {
+     return {
+         type: 'SUCCESS_LOGIN'
+     }
+}

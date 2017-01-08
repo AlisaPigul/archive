@@ -5,7 +5,8 @@
 
 
 const DEFAULT_STATE = {
-    show: false
+    show: false,
+    auth: false
 };
 
 
@@ -18,6 +19,10 @@ export function loginForm(state = DEFAULT_STATE, action){
         case 'LOGIN_HIDE':
             return {
                 show: false
+            };
+        case 'SUCCESS_LOGIN':
+            return {
+                auth: true
             };
         default:
             return state;

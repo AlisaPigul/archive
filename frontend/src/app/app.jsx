@@ -11,11 +11,16 @@ import configureStore from "./store/configureStore"
 import {Provider} from 'react-redux';
 import {Router, Route, Redirect, IndexRoute, browserHistory, hashHistory} from "react-router";
 import {showLogin} from "./actions/loginActions";
+import {PatentAddition} from "./components/patentAddition";
+import {connect} from "react-redux";
 
 
 const isProduction = true;
 
 let store = configureStore();
+@connect(state=> ({
+    auth: state.loginForm.auth
+}))
 class App extends React.Component {
 
     onLogin() {
@@ -27,13 +32,14 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showLoginForm: false
+            showLoginForm: false,
+            auth:true
         }
 
     }
 
     render() {
-        const arr = [<Header onLogin={this.onLogin.bind(this)} key="header"/>,
+        const arr = [<Header onLogin={this.onLogin.bind(this)} auth={this.state.auth} key="header"/>,
             <LoginForm key="loginForm"/>];
         return (
 
@@ -65,6 +71,7 @@ ReactDOM.render(
             <Route path="/" component={App}>
                 <Route path="query" component={QueryComponent}/>
                 <Route path="about" component={AboutComponent}/>
+                <Route path="patent" component={PatentAddition}/>
                 <Route path="*" component={TestComponent}/>
             </Route>
 

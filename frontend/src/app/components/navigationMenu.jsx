@@ -10,7 +10,9 @@ export class NavigationMenu extends React.Component{
         super(props);
         this.state = {
             selected: 0,
-            items: [{value:'Главная',link:'main'},{value:'Конструктор запросов',link:'query'},{value:'Классификаторы',link:'classes'},{value:'Об этом проекте',link:'about'}]
+            items: [{value:'Главная',link:'main'},{value:'Конструктор запросов',link:'query'},
+                    {value:'Классификаторы',link:'classes'},{value:'Об этом проекте',link:'about'}
+                     ]
         }
     }
     render(){

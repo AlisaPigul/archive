@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {hideLogin} from "../actions/loginActions";
+import {hideLogin, successLogin} from "../actions/loginActions";
 
 @connect(state=> ({
     show: state.loginForm.show
@@ -25,6 +25,7 @@ export class LoginForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.dispatch(hideLogin());
+        this.props.dispatch(successLogin());
     }
 
     render() {
