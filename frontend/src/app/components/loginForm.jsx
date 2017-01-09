@@ -1,9 +1,11 @@
 import React from "react";
-import {hideLogin, successLogin, login} from "../actions/loginActions";
-import { browserHistory } from 'react-router';
+import {hideLogin, login} from "../actions/loginActions";
+import {browserHistory} from "react-router";
 import {connect} from "react-redux";
 
-@connect()
+@connect(store=>({
+    auth: store.loginState.auth
+}))
 export class LoginForm extends React.Component {
     constructor(props){
         super(props);
@@ -11,6 +13,8 @@ export class LoginForm extends React.Component {
         this.handleLoginChange = this.handleLoginChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+
     }
 
     handleLoginChange(event) {
@@ -25,10 +29,13 @@ export class LoginForm extends React.Component {
         debugger;
         event.preventDefault();
         this.props.dispatch(login(this.state.value,this.state.password));
-        browserHistory.push("/main")
+
     }
 
     render() {
+        if(this.props.auth){
+            browserHistory.push("/main")
+        }
         return (
             <div id="wrapper" className='visible'>
 
