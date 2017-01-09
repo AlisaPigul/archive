@@ -1,5 +1,5 @@
 import React from "react";
-import {hideLogin, successLogin} from "../actions/loginActions";
+import {hideLogin, successLogin, login} from "../actions/loginActions";
 import { browserHistory } from 'react-router';
 import {connect} from "react-redux";
 
@@ -24,7 +24,7 @@ export class LoginForm extends React.Component {
     handleSubmit(event) {
         debugger;
         event.preventDefault();
-        this.props.dispatch(successLogin());
+        this.props.dispatch(login(this.state.value,this.state.password));
         browserHistory.push("/main")
     }
 

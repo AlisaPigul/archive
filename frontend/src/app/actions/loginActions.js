@@ -1,4 +1,4 @@
-import {LOGIN_SHOW, LOGIN_HIDE, LOGIN_SUCCESS, LOGOUT} from "../constants/loginConstants";
+import {LOGIN_SUCCESS, LOGOUT} from "../constants/loginConstants";
 /**
  * @author rlapin
  */
@@ -13,5 +13,15 @@ export function successLogin() {
 export function logout() {
     return {
         type: LOGOUT
+    }
+}
+export function login(username,password) {
+    return function(dispatch) {
+        debugger;
+        if (username === password && username === 'admin') {
+            return dispatch(successLogin());
+        } else {
+            return dispatch(logout());
+        }
     }
 }

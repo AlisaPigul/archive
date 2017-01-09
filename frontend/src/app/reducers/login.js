@@ -12,7 +12,6 @@ const DEFAULT_STATE = {
 
 export function loginState(state = DEFAULT_STATE, action){
     switch(action.type){
-
         case LOGIN_SUCCESS:
             return Object.assign({},state,{auth:true});
         case LOGOUT:
