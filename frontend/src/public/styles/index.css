@@ -60,8 +60,10 @@ header{
     align-items: center;
 }
 .login{
-    flex-grow:0;
+    background: rgba(39, 39, 39, 0.15);
+    padding: 1vh;
     margin-right: 1vw;
+    cursor: pointer;
 }
 
 .menu {
@@ -177,4 +179,24 @@ h2{
 }
 .row3x1 button{
     margin-left:auto;
+}
+.patent{
+    background: rgba(39, 39, 39, 0.15);
+    padding: 1vh;
+    margin-right: 1vw;
+}
+.logout{
+    background: rgba(39, 39, 39, 0.15);
+    padding: 1vh;
+    margin-right: 1vw;
+    cursor: pointer;
+}
+.logout:hover{
+    background: #fff;
+}
+.patent:hover{
+    background: #fff;
+}
+.login:hover{
+    background: #fff;
 }
